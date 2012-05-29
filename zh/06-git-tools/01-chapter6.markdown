@@ -491,17 +491,17 @@ apply 选项只尝试应用储藏的工作——储藏的内容仍然在栈上�
 
 你也可以运行 `git stash pop` 来重新应用储藏，同时立刻将其从堆栈中移走。
 
-### Un-applying a Stash ###
+### 取消对某个储藏的应用 ###
 
-In some use case scenarios you might want to apply stashed changes, do some work, but then un-apply those changes that originally came form the stash. Git does not provide such a `stash unapply` command, but it is possible to achieve the effect by simply retrieving the patch associated with a stash and applying it in reverse:
+有时候你可能会遇到这样的情况：应用了一个储藏，又做了一些工作之后，想要取消那些来自原有储藏的修改。 Git 没有像`stash unapply`这样的命令，但要达成同样的效果，可以简单地重新取得和该储藏相关连的补丁，并反向应用之：
 
     $ git stash show -p stash@{0} | git apply -R
 
-Again, if you don’t specify a stash, Git assumes the most recent stash:
+同上，如果没有指定名称， Git 会默认使用最新的储藏：
 
     $ git stash show -p | git apply -R
 
-You may want to create an alias and effectively add a `stash-unapply` command to your git. For example:
+为提升效率，建议你为上述操作创建一个别名，给 Git 添加一个`stash-unapply`命令。比如:
 
     $ git config --global alias.stash-unapply '!git stash show -p | git apply -R'
     $ git stash
