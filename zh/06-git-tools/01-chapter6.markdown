@@ -493,7 +493,7 @@ apply 选项只尝试应用储藏的工作——储藏的内容仍然在栈上�
 
 ### 取消对某个储藏的应用 ###
 
-有时候你可能会遇到这样的情况：应用了一个储藏，又做了一些工作之后，想要取消那些来自原有储藏的修改。 Git 没有像`stash unapply`这样的命令，但要达成同样的效果，可以简单地重新取得和该储藏相关连的补丁，并反向应用之：
+有时候你可能会遇到这样的情况：应用了一个储藏，又做了一些工作之后，想要取消那些来自原有储藏的修改。 Git 没有像 `stash unapply` 这样的命令，但要达成同样的效果，可以简单地重新取得和该储藏相关连的补丁，并反向应用之：
 
     $ git stash show -p stash@{0} | git apply -R
 
@@ -501,7 +501,7 @@ apply 选项只尝试应用储藏的工作——储藏的内容仍然在栈上�
 
     $ git stash show -p | git apply -R
 
-为提升效率，建议你为上述操作创建一个别名，给 Git 添加一个`stash-unapply`命令。比如:
+为提升效率，建议你为上述操作创建一个别名，给 Git 添加一个 `stash-unapply` 命令。比如：
 
     $ git config --global alias.stash-unapply '!git stash show -p | git apply -R'
     $ git stash
