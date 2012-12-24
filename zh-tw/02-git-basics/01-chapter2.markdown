@@ -165,7 +165,7 @@ benchmarks.rb檔案出現在Changed but not updated下方，代表著這個檔�
 *	可以/結尾，代表是目錄。
 *	可使用!符號將特徵反過來使用。
 
-Glob pattern就像是shell使用的簡化版正規運算式。 星號（*）匹配零個或多個字元；[abc]匹配中括弧內的任一字元（此例為a、b、c）；問號（?）匹配單一個字元；中括孤內的字以連字符連接（如：[0-9]），用來匹配任何符合該範圍的字（此例為0到9）。
+Glob pattern就像是shell使用的簡化版正規運算式。 星號（`*`）匹配零個或多個字元；[abc]匹配中括弧內的任一字元（此例為a、b、c）；問號（?）匹配單一個字元；中括孤內的字以連字符連接（如：[0-9]），用來匹配任何符合該範圍的字（此例為0到9）。
 
 
 以下是其它的範例：
@@ -375,7 +375,7 @@ Glob pattern就像是shell使用的簡化版正規運算式。 星號（*）匹�
 
 	$ git rm log/\*.log
 
-注意倒斜線（\）前方的星號（*）。 這是必須的，因為Git會在shell以上執行檔案的擴展。 此命令移除log目錄下所有檔名以.log結尾的檔案。 讀者也可以執行類似下列命令：
+注意倒斜線（\）前方的星號（`*`）。 這是必須的，因為Git會在shell以上執行檔案的擴展。 此命令移除log目錄下所有檔名以.log結尾的檔案。 讀者也可以執行類似下列命令：
 
 	$ git rm \*~
 
@@ -660,7 +660,7 @@ Insert 18333fig0202.png
 	#       modified:   benchmarks.rb
 	#
 
-在 "Changes to be commited" 文字下方，註明著使用 "git reset HEAD <file>..."，將 file 移出暫存區。 因此，讓我們依循該建議將 benchmarks.rb 檔案移出暫存區：
+在 "Changes to be commited" 文字下方，註明著使用 "`git reset HEAD <file>...`"，將 file 移出暫存區。 因此，讓我們依循該建議將 benchmarks.rb 檔案移出暫存區：
 
 	$ git reset HEAD benchmarks.rb 
 	benchmarks.rb: locally modified
@@ -1115,7 +1115,7 @@ This way, you can see the last commit easily:
 
 As you can tell, Git simply replaces the new command with whatever you alias it for. However, maybe you want to run an external command, rather than a Git subcommand. In that case, you start the command with a `!` character. This is useful if you write your own tools that work with a Git repository. We can demonstrate by aliasing `git visual` to run `gitk`:
 
-	$ git config --global alias.visual "!gitk"
+	$ git config --global alias.visual '!gitk'
 
 ## Summary ##
 
